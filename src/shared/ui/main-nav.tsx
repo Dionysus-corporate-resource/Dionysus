@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import {
   BriefcaseBusiness,
-  Headset,
+  Coffee,
   Menu,
   PackageOpen,
   PackagePlus,
@@ -44,11 +44,11 @@ export function MainNav() {
   const headerContent: Props["headerContent"] = {
     logoTitle: "Груз Рынок",
     linksMain: [
-      // {
-      //   icon: PackageSearch,
-      //   linkLabel: "Смотреть заявки",
-      //   navigate: "/",
-      // },
+      {
+        icon: PackageSearch,
+        linkLabel: "Смотреть заявки",
+        navigate: "/",
+      },
       {
         icon: PackageOpen,
         linkLabel: "Мои заявки",
@@ -117,18 +117,20 @@ export function MainNav() {
               {link.linkLabel}
             </NavLink>
           ))}
-          <NavLink
-            to="/support"
-            className={({ isActive }) =>
-              `flex gap-2 items-center text-sm font-medium transition-colors hover:primary ${
-                isActive ? "text-primary" : "text-primary/60"
-              }
+          {user?.token && (
+            <NavLink
+              to="/proposals"
+              className={({ isActive }) =>
+                `flex gap-2 items-center text-sm font-medium transition-colors hover:primary ${
+                  isActive ? "text-primary" : "text-primary/60"
+                }
               hidden text-xs sm:text-sm xl:flex`
-            }
-          >
-            <Headset className="w-3 h-3 sm:w-4 sm:h-4" />
-            Поддержка
-          </NavLink>
+              }
+            >
+              <Coffee className="w-3 h-3 sm:w-4 sm:h-4" />
+              Предложения
+            </NavLink>
+          )}
         </nav>
       </div>
 
@@ -157,6 +159,16 @@ export function MainNav() {
               <p>Профиль</p>
               <UserCog2 className="w-4 h-4" />
             </DropdownMenuItem>
+            {/* proposals */}
+            {user?.token && (
+              <DropdownMenuItem
+                onClick={() => navigate("/proposals")}
+                className="flex gap-4 justify-between"
+              >
+                <p>Предложения</p>
+                <Coffee className="w-4 h-4" />
+              </DropdownMenuItem>
+            )}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

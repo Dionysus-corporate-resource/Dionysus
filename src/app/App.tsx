@@ -16,7 +16,7 @@ import EditBookingMultiStepForm from "@/feature/edit-booking-multi-step-form/ui/
 import SuccessPage from "@/pages/payment/payment-success";
 import ErrorPage from "@/pages/payment/payment-failed";
 import { BookingCardPage, BookingTablePage, MapPage } from "@/pages/home";
-import SupportPage from "@/pages/support/support-page";
+import ProposalsPage from "@/pages/proposals/proposals-page";
 
 function App() {
   return (
@@ -59,7 +59,14 @@ function App() {
         />
         <Route path="/payment-success" element={<SuccessPage />} />
         <Route path="/payment-failed" element={<ErrorPage />} />
-        <Route path="/support" element={<SupportPage />} />
+        <Route
+          path="/proposals"
+          element={
+            <Authentication>
+              <ProposalsPage />
+            </Authentication>
+          }
+        />
       </Route>
 
       <Route element={<AuthLayout />}>

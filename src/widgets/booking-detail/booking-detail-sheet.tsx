@@ -21,7 +21,7 @@ export default function BookingDetailSheet({
       <SheetContent
         side="left"
         className="w-[400px] max-w-[400px] sm:w-[540px] sm:max-w-[540px] lg:w-[520px] overflow-y-auto z-[999]
-        ex:w-[100vw] ex:p-4"
+        ex:w-[100vw] ex:p-2"
       >
         <SheetHeader
           className="flex flex-row items-center gap-2

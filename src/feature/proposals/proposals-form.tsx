@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -22,6 +22,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/shared/components/ui/select";
+import { proposalsApi } from "./api/proposals-api";
+import { toast } from "@/shared/hooks/use-toast";
+import { useMutation } from "@tanstack/react-query";
+import { IProposals } from "@/shared/model/types/proposals";
+import { queryClient } from "@/shared/model/api/query-client";
 
 const formSchema = z.object({
   name: z.string().min(1, "Заголовок для сообщения обязателен к заполнению"),
@@ -31,7 +36,17 @@ const formSchema = z.object({
   }),
 });
 
-export default function ProposalsForm() {
+export default function ProposalsForm({
+  setIsOpenFeedBackForm,
+}: {
+  setIsOpenFeedBackForm: Dispatch<SetStateAction<boolean>>;
+}) {
+  const mutationCreate = useMutation({
+    mutationFn: (body: IProposals) => proposalsApi.create(body),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["proposals"] });
+    },
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -47,7 +62,24 @@ export default function ProposalsForm() {
     setIsSubmitting(true);
 
     try {
-      // Here you would typically make an API call to save the feedback
+      mutationCreate.mutate(values, {
+        onSuccess: () => {
+          toast({
+            title: "Сообщение создано",
+            description: "Поздравляю, сообщение создано",
+          });
+          setIsOpenFeedBackForm(false);
+        },
+        onError: () => {
+          toast({
+            title: "Ошибка",
+            description: "Ошибка при создании",
+            variant: "destructive",
+          });
+          setIsOpenFeedBackForm(false);
+        },
+      });
+
       console.log(values);
     } catch (error) {
       console.error(error);
@@ -57,10 +89,16 @@ export default function ProposalsForm() {
   }
 
   return (
-    <div className="p-6 max-w-2xl col-span-1 border-l">
-      <h1 className="text-2xl font-semibold tracking-tight mb-8">
-        Дайте обратную связь
-      </h1>
+    <div className="p-6 ex:p-4 max-w-2xl col-span-1 border-0 lg:border-l mx-auto">
+      <div className="mb-8 space-y-1">
+        <h1 className="text-2xl ex:text-lg font-medium  ex:font-normal tracking-tight">
+          Дайте обратную связь
+        </h1>
+        <p className="text-lg ex:text-sm">
+          Создавайте предложения по разработке или, если нашли недочеты в нашей
+          системе
+        </p>
+      </div>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -133,7 +171,7 @@ export default function ProposalsForm() {
             )}
           />
 
-          <div className="flex gap-4">
+          <div className="flex flex-col xl:flex-row gap-4">
             <Button
               className="bg-primary/80"
               type="submit"
@@ -141,8 +179,15 @@ export default function ProposalsForm() {
             >
               {isSubmitting ? "Отправляем..." : "Отпарвить сообщение"}
             </Button>
-            <Button type="button" variant="secondary">
-              Сбросить форму
+            <Button
+              type="button"
+              variant="secondary"
+              className="lg:hidden"
+              onClick={() =>
+                setIsOpenFeedBackForm && setIsOpenFeedBackForm(false)
+              }
+            >
+              Вернуться назад
             </Button>
           </div>
         </form>

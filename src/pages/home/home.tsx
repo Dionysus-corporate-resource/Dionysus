@@ -24,7 +24,7 @@ export default function HomePage() {
   const { data, isPending } = useQuery(bookingQueryOption.getAll());
   const filterBooking = data?.filter((booking) => booking?.status === "active");
   // const [isMapViewFull, setIsMapViewFull] = useAtom(isMapViewFullAtom);
-  const [isOpenMobileFilter, setIsOpenMobileFilter] = useState(true);
+  const [isOpenMobileFilter, setIsOpenMobileFilter] = useState(false);
   const [isOpenMobileSorted, setIsOpenMobileSorted] = useState(false);
   const [isOpenFilterAndSorted] = useState(true);
 
