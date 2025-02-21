@@ -74,8 +74,8 @@ export default function SortBookingPanel({
       // Обрабатываем вложенные поля
       switch (sortField) {
         case "distance":
-          valueA = a.basicInfo?.distance;
-          valueB = b.basicInfo?.distance;
+          valueA = parseFloat(a.basicInfo?.distance);
+          valueB = parseFloat(b.basicInfo?.distance);
           break;
 
         case "tonnage":

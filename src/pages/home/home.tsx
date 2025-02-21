@@ -5,7 +5,7 @@ import { bookingQueryOption } from "./api/query-option";
 import { useQuery } from "@tanstack/react-query";
 import FilterBookingPanel from "@/feature/filter-panel/filter-booking-panel";
 
-import { ArrowUpDown, Filter, Package2, Truck, X } from "lucide-react";
+import { ArrowUpDown, Filter, Package2, X } from "lucide-react";
 import { MobileFilterPanel } from "@/widgets/mobile/mobile-filter-panel/mobile-filter-panel";
 import { MobileSortedPanel } from "@/widgets/mobile/mobile-sorted-panel/mobile-sorted-panel";
 import { useState } from "react";
@@ -43,12 +43,6 @@ export default function HomePage() {
           <MapBackgroundYandex />
         </div>
       </div>
-      {/* карта */}
-      {/* <div className="col-span-3  rounded-lg overflow-hidden">
-        <div className="absolute left-0 col-span-3  h-[414px] w-full rounded-lg overflow-hidden">
-          <MapBackground />
-        </div>
-      </div> */}
 
       {/* сортировочная панель */}
       <div className="col-span-3 md:col-span-3 lg:col-span-1 flex flex-col">
@@ -71,7 +65,7 @@ export default function HomePage() {
                     className="space-x-2"
                     onClick={() => navigate("/map-view")}
                   >
-                    <Truck className="w-4 h-4" />
+                    {/* <Truck className="w-4 h-4" /> */}
                     <span className="ex:text-xs">Поиск первзчиков (скоро)</span>
                   </TabsTrigger>
 
@@ -168,10 +162,10 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
       <div className="relative col-span-3 md:col-span-3 lg:col-span-2 z-10 ex:px-0 px-4 pt-0 mt-0 mx-auto lg:mt-[350px] rounded-xl">
         <Outlet />
       </div>
-      {/* <div className="h-60 col-span-3 bg-muted">Blcok1</div> */}
 
       {/* реклама */}
       {/* <div className="col-span-3">
@@ -179,7 +173,7 @@ export default function HomePage() {
       </div> */}
 
       {/* подвал */}
-      <div className="h-60 col-span-3 mt-20">
+      <div className="h-60 col-span-3 mt-0">
         <div className="absolute left-0 bottom-0 w-full h-60 col-span-3 bg-muted">
           <SiteFooter />
         </div>

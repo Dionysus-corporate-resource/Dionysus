@@ -23,7 +23,7 @@ export default function BookingListCard() {
           <SkeletonBookingCard key={index} />
         ))
       ) : filterBooking.length > 0 ? (
-        filterBooking?.map((booking, index) => (
+        filterBooking?.reverse().map((booking, index) => (
           <BookingCard
             key={booking._id}
             orderNumber={index + 1}
@@ -45,7 +45,7 @@ export default function BookingListCard() {
           />
         ))
       ) : (
-        <div className="text-muted-foreground">Нет активных заявок</div>
+        <div className="text-muted-foreground mt-24">Нет активных заявок</div>
       )}
     </div>
   );

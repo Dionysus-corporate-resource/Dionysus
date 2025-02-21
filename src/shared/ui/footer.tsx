@@ -77,6 +77,15 @@ export function SiteFooter() {
                   Телеграмм канал
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://t.me/gruzrynokSupport"
+                  className="hover:text-background"
+                >
+                  Написать в поддержку
+                </a>
+              </li>
+
               {/* <li>
                 <a
                   href="#"

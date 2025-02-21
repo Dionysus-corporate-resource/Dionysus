@@ -12,11 +12,11 @@ import NotFound from "@/pages/not-found/not-found";
 import MyBooking from "@/pages/my-booking/my-booking";
 import CreateBookingPage from "@/pages/create-booking/create-booking-page";
 import Authentication from "./providers/authenication-provider";
-import EditBookingMultiStepForm from "@/feature/edit-booking-multi-step-form/ui/multi-step-form";
 import SuccessPage from "@/pages/payment/payment-success";
 import ErrorPage from "@/pages/payment/payment-failed";
 import { BookingCardPage, BookingTablePage, MapPage } from "@/pages/home";
 import ProposalsPage from "@/pages/proposals/proposals-page";
+import EditBookingPage from "@/pages/edit-booking/edit-booking";
 
 function App() {
   return (
@@ -45,7 +45,7 @@ function App() {
           path="edit-booking/:bookingId"
           element={
             <Authentication>
-              <EditBookingMultiStepForm />
+              <EditBookingPage />
             </Authentication>
           }
         />

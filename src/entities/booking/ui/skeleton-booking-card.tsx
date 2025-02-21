@@ -3,7 +3,7 @@ import { Skeleton } from "@/shared/components/ui/skeleton";
 
 export default function SkeletonBookingCard() {
   return (
-    <Card className="w-full max-w-md border bg-card">
+    <Card className="w-full max-w-lg border bg-card">
       {/* Заголовок с номером заявки и статусом */}
       <CardHeader className="pb-4">
         <div className="flex items-start justify-between mb-4">
@@ -17,7 +17,7 @@ export default function SkeletonBookingCard() {
         {/* Быстрая информация */}
         <div className="grid grid-cols-3 gap-4 p-3 bg-muted/30 rounded-lg">
           <div className="text-center">
-            <Skeleton className="h-3 w-16 mx-auto mb-2" />
+            <Skeleton className="h-3 w-32 mx-auto mb-2" />
             <Skeleton className="h-5 w-12 mx-auto" />
           </div>
           <div className="text-center border-x border-border">

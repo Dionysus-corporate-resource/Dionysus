@@ -1,13 +1,10 @@
 import BookingDetailSheet from "@/widgets/booking-detail/booking-detail-sheet";
-import "leaflet/dist/leaflet.css";
 // import { divIcon } from "leaflet";
 import { PhoneOutgoing } from "lucide-react";
 // import { renderToString } from "react-dom/server";
 // import { IBookingDto } from "@/shared/model/types/booking";
 import { SkeletonBookingCardLong } from "@/entities/booking";
 
-// import L from "leaflet";
-import "leaflet.markercluster";
 import { Button } from "@/shared/components/ui/button";
 
 import { useAtomValue } from "jotai";

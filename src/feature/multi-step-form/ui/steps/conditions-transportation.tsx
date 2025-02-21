@@ -3,6 +3,7 @@ import { Input } from "@/shared//components/ui/input";
 import { Label } from "@/shared/components/ui/label";
 import { FormStepProps } from "../../model/types";
 import { format } from "date-fns";
+import { ru } from "date-fns/locale";
 import { CalendarIcon } from "lucide-react";
 
 import { cn } from "@/shared/lib/utils";
@@ -123,7 +124,9 @@ export function ConditionsTransportation({
             >
               <CalendarIcon />
               {formData?.conditionsTransportation?.loadingDate ? (
-                format(formData?.conditionsTransportation?.loadingDate, "PPP")
+                format(formData?.conditionsTransportation?.loadingDate, "PPP", {
+                  locale: ru,
+                })
               ) : (
                 <span>Выберите дату погрузки</span>
               )}
@@ -132,6 +135,7 @@ export function ConditionsTransportation({
           <PopoverContent className="w-auto p-0" align="start">
             <Calendar
               mode="single"
+              locale={ru}
               selected={formData?.conditionsTransportation?.loadingDate}
               onSelect={(value) => {
                 updateFormData({

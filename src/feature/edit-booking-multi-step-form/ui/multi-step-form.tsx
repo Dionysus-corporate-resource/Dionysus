@@ -227,7 +227,7 @@ export default function EditBookingMultiStepForm() {
   };
 
   return (
-    <Card className="w-full border-none shadow-none px-6">
+    <Card className="w-full border-none shadow-none">
       <CardHeader>
         {/* <CardTitle>Форма создания заявки</CardTitle> */}
       </CardHeader>

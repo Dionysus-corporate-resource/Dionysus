@@ -38,14 +38,14 @@ export default function FeedbackList({
   return (
     <div className="h-[calc(100vh-80px)] p-6 ex:p-4 pr-4 col-span-2">
       <div className="flex flex-row ex:flex-col justify-between gap-4 ex:gap-2 mb-4">
-        <div className="w-full">
-          <Button
+        <div className="w-full ex:space-y-2">
+          {/* <Button
             className="bg-primary/80 lg:hidden"
             onClick={() => setIsOpenFeedBackForm && setIsOpenFeedBackForm(true)}
           >
             <MessageCirclePlus className="h-4 w-4" />
             Оставить предложение
-          </Button>
+          </Button> */}
           <Input
             className="w-full"
             value={search}
@@ -53,9 +53,9 @@ export default function FeedbackList({
             placeholder="Найти предложение или ошибку"
           />
         </div>
-        <div className="flex gap-4 w-full sm:w-auto">
+        <div className="flex ex:gap-2 gap-4 w-full sm:w-auto">
           <Select value={filter} onValueChange={setFilter}>
-            <SelectTrigger className="w-fit">
+            <SelectTrigger className="w-full">
               <SelectValue placeholder="Выберите тип" />
             </SelectTrigger>
             <SelectContent>
@@ -66,6 +66,13 @@ export default function FeedbackList({
               <SelectItem value="bag">Ошибки на сайте</SelectItem>
             </SelectContent>
           </Select>
+          <Button
+            className="bg-primary/80 w-full lg:hidden"
+            onClick={() => setIsOpenFeedBackForm && setIsOpenFeedBackForm(true)}
+          >
+            <MessageCirclePlus className="h-4 w-4 ex:hidden !ex:text-xs" />
+            Добавить
+          </Button>
         </div>
       </div>
 
