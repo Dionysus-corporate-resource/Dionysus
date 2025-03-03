@@ -206,7 +206,7 @@ export function BasicInfoStep({
                 className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70
                 ex:text-xs text-sm"
               >
-                Тыкнуть на карте
+                Выбрать самому
               </label>
               <Checkbox
                 checked={isViewMap}

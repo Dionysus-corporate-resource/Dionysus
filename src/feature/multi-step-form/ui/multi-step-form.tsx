@@ -16,7 +16,7 @@ import { useMutation } from "@tanstack/react-query";
 import { bookingApi } from "@/pages/home/api/booking-api";
 import { queryClient } from "@/shared/model/api/query-client";
 import { toast } from "@/shared/hooks/use-toast";
-import { cityesLocations } from "@/shared/lib/cityes";
+// import { cityesLocations } from "@/shared/lib/cityes";
 
 const steps: Step[] = [
   {
@@ -75,8 +75,8 @@ export default function CreateBookingStepForm() {
     basicInfo: {
       distance: "",
       loadingLocation: {
-        name: cityesLocations[0].districts[0].name,
-        coordinates: cityesLocations[0].districts[0].coordinates,
+        name: "",
+        coordinates: null,
       },
       unLoadingLocation: "",
       tonnage: "",
