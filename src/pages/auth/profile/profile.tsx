@@ -1,5 +1,5 @@
 import { useAuth } from "@/app/providers/auth-provider";
-// import { TruckInfoCard } from "@/entities/driver";
+import { TruckInfoCard } from "@/entities/driver";
 import { PersonalInfo } from "@/entities/profile";
 import { ProfileEditForm } from "@/feature/auth/profile";
 
@@ -170,11 +170,11 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        {/* <div className="space-y-4">
+        <div className="space-y-4">
           {Array.from({ length: 10 }).map((_, index) => (
             <TruckInfoCard key={index} />
           ))}
-        </div> */}
+        </div>
       </div>
     </div>
   );

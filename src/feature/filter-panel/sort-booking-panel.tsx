@@ -108,7 +108,7 @@ export default function SortBookingPanel({
       className={cn(
         "",
         placeUse === "mobile"
-          ? "flex flex-row ex:flex-col ex:gap-2 ex:pb-2 gap-4 px-2 md:px-0"
+          ? "flex flex-row ex:flex-col ex:gap-2 ex:pb-2 gap-4 ex:px-4 sm:px-0"
           : "hidden xl:grid grid-cols-1 2xl:grid-cols-2 items-end gap-4",
       )}
     >

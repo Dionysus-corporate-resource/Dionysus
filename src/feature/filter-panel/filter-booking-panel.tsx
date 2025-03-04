@@ -112,14 +112,14 @@ export default function FilterBookingPanel({
   return (
     <div
       className={cn(
-        "justify-between w-full gap-1 mb-4 bg-mutedd rounded-lg lg:p-2 xl:p-4",
+        "justify-between w-full gap-1 bg-mutedd rounded-lg lg:p-2 xl:p-4",
         placeUse === "mobile"
-          ? "grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 items-end px-2 md:px-0 gap-x-4 gap-y-2"
+          ? "grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 items-end md:px-0 gap-x-4 gap-y-2 ex:px-4"
           : "hidden lg:grid lg:grid-cols-1 gap-4",
       )}
     >
-      <div className="hidden lg:flex gap-2 items-center text-xl font-semibold">
-        <p>Панель для расширенного поиcка</p>
+      <div className="hidden lg:flex gap-2 items-center text-xl font-normal">
+        Панель расширенного поиcка
       </div>
 
       {/* Поле для фильтрации по культуре */}

@@ -1,4 +1,4 @@
-import { ArrowDownRight, CornerRightUp, Package } from "lucide-react";
+import { ArrowDownRight, CornerRightUp } from "lucide-react";
 import { Card } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
 import { ReactNode } from "react";
@@ -13,15 +13,16 @@ export default function BookingCardLong({
   booking: IBookingDto;
 }) {
   return (
-    <Card className="relative max-w-xl h-full bg-card shadow-md hover:shadow-lg transition-shadow duration-200">
+    <Card className="relative flex flex-col  h-full bg-card rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
       {/* Left section with ID and culture */}
-      <div className="border-dashed border-b p-2 w-full flex items-center justify-between">
+      <div className="p-2 w-full flex items-center justify-between border-b">
         <div className="flex items-center ">
-          <Badge variant="outline" className="space-x-2 w-full border-none">
-            <Package className="w-4 h-4 shrink-0" />
-            <p className="text-xs font-medium">
+          <Badge variant="outline" className="w-full border-none px-2 py-1">
+            {/* <Package className="w-4 h-4 shrink-0" /> */}
+            <div className="flex gap-2 text-xs font-medium ">
+              <p>-</p>
               {booking?.basicInfo?.culture || "Уточнить"}
-            </p>
+            </div>
           </Badge>
         </div>
 
@@ -40,11 +41,11 @@ export default function BookingCardLong({
         </div> */}
       </div>
 
-      <div className="flex">
+      <div className="flex flex-col flex-1 px-0 py-0">
         {/* Middle section with route info */}
-        <div className="w-[120px] border-dashed border-r border-border p-4 flex flex-col justify-between">
-          <div className="grid grid-cols-1 gap-2">
-            <div className="text-start">
+        {/* <div className="shrink-0 w-full border-dashed border-r border-border p-0 flex flex-col justify-between">
+          <div className="grid grid-cols-3 justify-center gap-2 bg-muted/30 p-4">
+            <div className="text-center border-r">
               <p className="text-sm font-medium">
                 {booking?.basicInfo?.distance ? (
                   <>{booking?.basicInfo?.distance} км</>
@@ -54,7 +55,7 @@ export default function BookingCardLong({
               </p>
               <p className="text-xs text-muted-foreground mb-1">Расстояние</p>
             </div>
-            <div className="text-start">
+            <div className="text-center border-r">
               <p className="text-sm font-medium">
                 {booking?.basicInfo?.tonnage ? (
                   <>{booking?.basicInfo?.tonnage} тонн</>
@@ -64,7 +65,7 @@ export default function BookingCardLong({
               </p>
               <p className="text-xs text-muted-foreground mb-1">Вес</p>
             </div>
-            <div className="text-start">
+            <div className="text-center">
               <p className="text-sm font-medium">
                 {booking?.detailTransportation?.ratePerTon ? (
                   <>{booking?.detailTransportation?.ratePerTon} ₽/т</>
@@ -75,15 +76,55 @@ export default function BookingCardLong({
               <p className="text-xs text-muted-foreground mb-1">Ставка</p>
             </div>
           </div>
+        </div> */}
 
-          {/* <div className="flex justify-end mt-4">{bookingDetailSlot}</div> */}
+        <div className="grid grid-cols-3 gap-4 p-4 bg-muted/30 rounded-">
+          <div className="text-center px-2 2xl:px-6">
+            <p className="text-xs text-muted-foreground mb-1">Расстояние</p>
+            <p
+              className="font-medium
+              ex:text-xs"
+            >
+              {booking?.basicInfo?.distance ? (
+                <>{booking?.basicInfo?.distance} км</>
+              ) : (
+                "-"
+              )}
+            </p>
+          </div>
+          <div className="text-center border-x border-border ">
+            <p className="text-xs text-muted-foreground mb-1">Вес</p>
+            <p
+              className="font-medium
+              ex:text-xs"
+            >
+              {booking?.basicInfo?.tonnage ? (
+                <>{booking?.basicInfo?.tonnage} тонн</>
+              ) : (
+                "-"
+              )}
+            </p>
+          </div>
+          <div className="text-center ">
+            <p className="text-xs text-muted-foreground mb-1">Ставка</p>
+            <p
+              className="font-medium
+              ex:text-xs"
+            >
+              {booking?.detailTransportation?.ratePerTon ? (
+                <>{booking?.detailTransportation?.ratePerTon} ₽/т</>
+              ) : (
+                "-"
+              )}
+            </p>
+          </div>
         </div>
 
         {/* Right section with stats */}
-        <div className="flex-1 p-4 pr-0 mr-12">
-          <div className="flex flex-col gap-8 h-full">
+        <div className="flex-1 ex:p-4 p-6">
+          <div className="flex flex-col gap-4 h-full">
             <div className="flex gap-2">
-              <ArrowDownRight className="w-4 h-4 mt-[2px]" />
+              <ArrowDownRight className="shrink-0  w-4 h-4 mt-[2px]" />
               <div>
                 <p className="text-sm font-medium">
                   {booking?.basicInfo?.loadingLocation?.name || "-"}
@@ -105,7 +146,7 @@ export default function BookingCardLong({
             </div>
 
             <div className="flex gap-2">
-              <CornerRightUp className="w-4 h-4 mt-[2px]" />
+              <CornerRightUp className="shrink-0  w-4 h-4 mt-[2px]" />
               <div>
                 <p className="text-sm font-medium">
                   {booking?.basicInfo?.unLoadingLocation || "-"}
@@ -117,10 +158,11 @@ export default function BookingCardLong({
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="absolute right-0 h-[calc(100%-38px)]">
-          {bookingDetailSlot}
-        </div>
+      <div className="h-fit w-wull p-4 pt-2 flex items-center justify-end">
+        {/* <p className="px-2">{booking?.companyPublicData?.nameCompany}</p> */}
+        {bookingDetailSlot}
       </div>
     </Card>
   );

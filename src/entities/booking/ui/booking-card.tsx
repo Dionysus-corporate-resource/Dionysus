@@ -86,7 +86,7 @@ export default function BookingCard({
 
         {/* Быстрая информация */}
         <div className="grid grid-cols-3 gap-4 p-3 bg-muted/30 rounded-lg">
-          <div className="text-center">
+          <div className="text-center px-2 2xl:px-6">
             <p className="text-xs text-muted-foreground mb-1">Расстояние</p>
             <p
               className="font-medium
@@ -99,7 +99,7 @@ export default function BookingCard({
               )}
             </p>
           </div>
-          <div className="text-center border-x border-border">
+          <div className="text-center border-x border-border ">
             <p className="text-xs text-muted-foreground mb-1">Вес</p>
             <p
               className="font-medium
@@ -112,7 +112,7 @@ export default function BookingCard({
               )}
             </p>
           </div>
-          <div className="text-center">
+          <div className="text-center ">
             <p className="text-xs text-muted-foreground mb-1">Ставка</p>
             <p
               className="font-medium
@@ -127,7 +127,6 @@ export default function BookingCard({
           </div>
         </div>
       </CardHeader>
-
       <CardContent className="flex flex-col gap-2 justify-between">
         {/* Маршрут */}
         <div

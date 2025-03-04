@@ -36,7 +36,7 @@ export default function HomePage() {
     );
 
   return (
-    <div className="container mx-auto grid grid-cols-3 gap-6">
+    <div className="container mx-auto grid grid-cols-3 gap-0">
       {/* карта */}
       <div className="col-span-3  rounded-lg overflow-hidden">
         <div className="absolute left-0 col-span-3  h-[414px] w-full rounded-lg overflow-hidden">
@@ -45,8 +45,8 @@ export default function HomePage() {
       </div>
 
       {/* сортировочная панель */}
-      <div className="col-span-3 md:col-span-3 lg:col-span-1 flex flex-col">
-        <div className="sticky top-24 z-10 mt-[350px] rounded-xl">
+      <div className="col-span-3 md:col-span-3 lg:col-span-1 flex flex-col pb-0 lg:pb-8">
+        <div className="sticky top-24 z-10 mt-[374px] rounded-xl">
           <Tabs defaultValue={location.pathname}>
             <div className="relative flex gap-2 xl:gap-6 ex:gap-2 justify-between ex:flex-col flex-col xl:flex-row">
               <div className="flex gap-6">
@@ -66,7 +66,7 @@ export default function HomePage() {
                     onClick={() => navigate("/map-view")}
                   >
                     {/* <Truck className="w-4 h-4" /> */}
-                    <span className="ex:text-xs">Поиск первзчиков (скоро)</span>
+                    <span className="ex:text-xs">Первзчиков (скоро)</span>
                   </TabsTrigger>
 
                   <TabsTrigger
@@ -163,7 +163,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="relative col-span-3 md:col-span-3 lg:col-span-2 z-10 ex:px-0 px-4 pt-0 mt-0 mx-auto lg:mt-[350px] rounded-xl">
+      <div className="relative col-span-3 md:col-span-3 lg:col-span-2 z-10 ex:px-0 px-4 pt-6 lg:pt-0 lg:mt-[380px] rounded-xl pb-8">
         <Outlet />
       </div>
 
